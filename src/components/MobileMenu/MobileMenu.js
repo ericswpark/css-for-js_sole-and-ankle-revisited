@@ -79,7 +79,7 @@ const NavLink = styled.a`
   text-transform: uppercase;
 
   &:first-of-type {
-    color: ${COLORS.secondary};
+    color: var(--color-secondary);
   }
 `;
 
@@ -96,9 +96,9 @@ const Footer = styled.footer`
 `;
 
 const FooterLink = styled.a`
-  color: ${COLORS.gray[700]};
+  color: var(--color-gray-700);
   text-decoration: none;
-  font-weight: ${WEIGHTS.normal};
+  font-weight: var(--weight-normal);
   font-size: ${14 / 16}rem;
 `
 
