@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { COLORS, WEIGHTS } from '../../constants';
+import { COLORS, QUERIES, WEIGHTS } from '../../constants';
 import Logo from '../Logo';
+import Icon from '../Icon';
 import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
 
@@ -30,6 +31,11 @@ const Header = () => {
           <NavLink href="/collections">Collections</NavLink>
         </Nav>
         <Side />
+        <MobileNav>
+          <Icon id="shopping-bag" strokeWidth={2}/>
+          <Icon id="search" strokeWidth={2}/>
+          <Icon id="menu" strokeWidth={2}/>
+        </MobileNav>
       </MainHeader>
 
       <MobileMenu
@@ -52,10 +58,23 @@ const Nav = styled.nav`
   display: flex;
   gap: 48px;
   margin: 0px 48px;
+
+  @media ${QUERIES.tabletAndDown} {
+    display: none;
+  }
 `;
 
-const Side = styled.div`
-  flex: 1;
+const MobileNav = styled.nav`
+  display: none;
+  gap: 32px;
+
+  @media ${QUERIES.tabletAndDown} {
+    display: flex;
+  }
+
+  @media ${QUERIES.phoneAndDown} {
+    gap: 16px;
+  }
 `;
 
 const NavLink = styled.a`
@@ -68,6 +87,10 @@ const NavLink = styled.a`
   &:first-of-type {
     color: ${COLORS.secondary};
   }
+`;
+
+const Side = styled.div`
+  flex: 1;
 `;
 
 export default Header;
